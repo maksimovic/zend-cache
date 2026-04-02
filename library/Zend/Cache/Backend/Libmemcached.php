@@ -260,6 +260,7 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
                 Zend_Cache::throwException('Invalid mode for clean() method');
                    break;
         }
+        return false;
     }
 
     /**

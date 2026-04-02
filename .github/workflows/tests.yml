@@ -12,16 +12,22 @@ jobs:
       matrix:
         php: ['8.1', '8.2', '8.3', '8.4', '8.5']
     name: PHP ${{ matrix.php }}
+    services:
+      memcached:
+        image: memcached:1-alpine
+        ports:
+          - 11211:11211
     steps:
       - uses: actions/checkout@v4
 
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
+          extensions: memcached
           coverage: none
 
       - run: composer install --no-interaction --prefer-dist
 
-      - run: composer test
+      - run: vendor/bin/phpunit --do-not-cache-result --no-stop-on-failure --no-stop-on-error
 
       - run: composer phpstan

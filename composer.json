@@ -24,7 +24,8 @@
     },
     "replace": {
         "zf1/zend-cache": "^1.12",
-        "zf1s/zend-cache": "^1.12"
+        "zf1s/zend-cache": "^1.12",
+        "zendframework/zend-cache": "*"
     },
     "scripts": {
         "test": "phpunit",

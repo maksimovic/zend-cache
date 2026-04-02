@@ -1,12 +1,16 @@
 {
-    "name": "zf1s/zend-cache",
+    "name": "maksimovic/zend-cache",
     "description": "Zend Framework 1 Cache package",
     "keywords": ["framework", "zf1", "zend", "cache"],
     "homepage": "http://framework.zend.com/",
     "license": "BSD-3-Clause",
     "require": {
-        "php": ">=5.3.3",
-        "zf1s/zend-exception": "^1.15.5"
+        "php": ">=8.1",
+        "maksimovic/zend-exception": "^2.0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "phpstan/phpstan": "^2.1"
     },
     "autoload": {
         "psr-0": {
@@ -14,18 +18,22 @@
         }
     },
     "suggest": {
-        "ext-apc": "Used in special situations or with special adapters",
-        "ext-memcache": "Used in special situations or with special adapters",
-        "ext-memcached": "Used in special situations or with special adapters",
-        "ext-sqlite": "Used in special situations or with special adapters",
-        "zf1s/zend-log": "Used in special situations or with special adapters"
+        "ext-memcached": "Required for the Libmemcached backend",
+        "ext-sqlite3": "Required for the Sqlite backend",
+        "maksimovic/zend-log": "Required for logging support"
     },
     "replace": {
-        "zf1/zend-cache": "^1.12"
+        "zf1/zend-cache": "^1.12",
+        "zf1s/zend-cache": "^1.12"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-text",
+        "phpstan": "phpstan analyse --memory-limit=256M"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.x-dev"
+            "dev-master": "2.x-dev"
         }
     }
 }

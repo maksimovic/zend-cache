@@ -377,7 +377,7 @@ class Zend_Cache_Frontend_Page extends Zend_Cache_Core
             }
             break;
         case 'Cookie':
-            if (isset($_COOKIE)) {
+            if (!empty($_COOKIE)) {
                 $var = $_COOKIE;
             } else {
                 $var = null;

@@ -203,5 +203,6 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
                 Zend_Cache::throwException('Invalid mode for clean() method');
                 break;
         }
+        return false;
     }
 }

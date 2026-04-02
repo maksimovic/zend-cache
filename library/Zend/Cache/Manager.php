@@ -174,6 +174,7 @@ class Zend_Cache_Manager
 
             return $this->_caches[$name];
         }
+        return null;
     }
 
     /**
@@ -239,6 +240,7 @@ class Zend_Cache_Manager
         if (isset($this->_optionTemplates[$name])) {
             return $this->_optionTemplates[$name];
         }
+        return null;
     }
 
     /**

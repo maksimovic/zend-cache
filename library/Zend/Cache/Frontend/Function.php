@@ -141,12 +141,13 @@ class Zend_Cache_Frontend_Function extends Zend_Cache_Core
         $name = strtolower($name);
 
         // generate a unique id for object callbacks
+        $object = null;
         if (is_object($callback)) { // Closures & __invoke
             $object = $callback;
-        } elseif (isset($callback[0])) { // array($object, 'method')
+        } elseif (is_array($callback) && isset($callback[0])) { // array($object, 'method')
             $object = $callback[0];
         }
-        if (isset($object)) {
+        if ($object !== null) {
             try {
                 $tmp = @serialize($callback);
             } catch (Exception $e) {
